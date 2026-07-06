@@ -25,6 +25,22 @@ Before you begin, ensure you have:
 - **agents-cli**: Agents CLI - Install with `uv tool install google-agents-cli`
 - **Google Cloud SDK**: For GCP services - [Install](https://cloud.google.com/sdk/docs/install)
 
+### 🔑 API Key Configuration
+To run the Socratic AI tutoring agents (Research Assistant & Principal Investigator), you must configure your Gemini API Key as an environment variable before launching the application:
+
+*   **macOS / Linux:**
+    ```bash
+    export GEMINI_API_KEY="your_gemini_api_key"
+    ```
+*   **Windows (CMD):**
+    ```cmd
+    set GEMINI_API_KEY="your_gemini_api_key"
+    ```
+*   **Windows (PowerShell):**
+    ```powershell
+    $env:GEMINI_API_KEY="your_gemini_api_key"
+    ```
+
 
 ## Quick Start
 

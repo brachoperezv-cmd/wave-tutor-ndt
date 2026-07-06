@@ -747,6 +747,20 @@ selected_page = st.sidebar.radio(
 )
 st.session_state["current_page"] = selected_page
 
+st.sidebar.markdown("---")
+st.sidebar.markdown(
+    "<h4 style='font-weight: 700; margin-bottom: 2px;'>🔑 Gemini API Authentication</h4>",
+    unsafe_allow_html=True,
+)
+visitor_api_key = st.sidebar.text_input(
+    "Enter your API Key:",
+    type="password",
+    placeholder="AIzaSy...",
+    help="Optional: Enter a Gemini API Key from Google AI Studio. If empty, the app will use the server's default configuration (or seamlessly switch to the local physics fallback).",
+)
+if visitor_api_key:
+    os.environ["GEMINI_API_KEY"] = visitor_api_key
+
 
 # =========================================================================
 # Page 1: Home / Dashboard

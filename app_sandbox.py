@@ -21,7 +21,8 @@ from app.generate_signal import METALS_DATABASE, generate_signal_data
 from app.signal_utils import find_signal_peaks, load_signal
 
 # Load literature values
-lit_path = "/Users/valeriebracho/wave-tutor-project/references/literature_values.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+lit_path = os.path.join(BASE_DIR, "references", "literature_values.json")
 with open(lit_path) as f:
     literature_db = json.load(f)
 
@@ -35,9 +36,7 @@ st.set_page_config(
 
 # Load text files dynamically
 def load_text_content(filename: str) -> str:
-    filepath = os.path.join(
-        "/Users/valeriebracho/wave-tutor-project/references", filename
-    )
+    filepath = os.path.join(BASE_DIR, "references", filename)
     if os.path.exists(filepath):
         with open(filepath, encoding="utf-8") as f:
             return f.read()
@@ -352,7 +351,7 @@ def parse_learning_mode_blocks(tutor_output: str) -> dict:
 
 
 def get_tutorial_content(key: str, placeholders: dict) -> str:
-    path = "/Users/valeriebracho/wave-tutor-project/references/tutorial_static_content.json"
+    path = os.path.join(BASE_DIR, "references", "tutorial_static_content.json")
     defaults = {
         "step0_welcome_card": "Welcome to the WaveTutor Guided Tutorial! Before we begin, let's review the parameters used for this experiment:\n* **Specimen Material:** {{material}}\n* **Specimen Thickness ($d$):** {{thickness}} mm\n* **Signal Frequency ($f_0$):** {{frequency}} kHz\n\n##### 🎯 Tutorial Objectives\nIn this guided tutorial, we will take you step-by-step through the solver's attempts to measure the ultrasonic sound speeds:\n* **Transducer Ringing & Startup Electrical Noise:** Analyze the impact of transducer startup ringing.\n* **Longitudinal Wave Leakage (Mode Overlap):** Inspect wave mode leakage on the shear channel.\n* **Correct Peak Alignment & Moduli Calculation:** Match corresponding peaks, calculate true wave velocities, and evaluate dynamic elastic properties.",
         "attempt3_pass_message": "#### 🟢 Status: Verification PASS\n\n**Well done! The calculated wave velocities and travel times are correct.**\n\n* **Why they are correct:** By using cross-correlation to align the signals, we matched the corresponding peaks (the same peak index of the wave package) on both waveforms. This avoids the early transducer startup ringing noise and the longitudinal wave mode leakage, yielding the true physical travel time of the sound wave.\n\n* **Next Steps:** We will now move on to a step-by-step revision of the results and discuss what these physical properties mean for the material.",

@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import json
 import re
 import traceback
@@ -52,10 +53,10 @@ else:
     os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "False"
 
 
-# Define structured model schemas
-class PIVerdict(BaseModel):
-    approved: bool = Field(
-        description="True if the RA's draft explanation is accurate, educational, Socratic, and ready for the student."
+# Structuring inputs and outputs for Structured Outputs (PI feedback structure)
+class PrincipalInvestigatorFeedback(BaseModel):
+    is_approved: bool = Field(
+        description="True if the lesson review satisfies all technical and formatting rules, False if corrections are needed."
     )
     feedback_to_ra: str = Field(
         description="Detailed suggestions for corrections if not approved. If approved, this can be empty or 'Approved'."
@@ -64,7 +65,7 @@ class PIVerdict(BaseModel):
 
 # Helper function to read references
 def read_reference_file(filename: str) -> str:
-    path = os.path.join("/Users/valeriebracho/wave-tutor-project/references", filename)
+    path = os.path.join(BASE_DIR, "references", filename)
     if os.path.exists(path):
         with open(path, "r") as f:
             return f.read()
@@ -72,7 +73,7 @@ def read_reference_file(filename: str) -> str:
 
 
 def get_error_message(key: str, placeholders: dict) -> str:
-    path = "/Users/valeriebracho/wave-tutor-project/references/error_messages.json"
+    path = os.path.join(BASE_DIR, "references", "error_messages.json")
     defaults = {
         "reject_cat2_negative_L": "Calculated travel time is negative or zero ({{l_diff}} us), meaning the receiver peak you selected at {{l_rec_snapped}} us occurs before the wave was sent. This is transducer electrical noise/ringing.",
         "reject_cat2_high_speed_L": "Longitudinal speed is impossibly high ({{cL}} m/s) because the calculated travel time is too short ({{l_diff}} us) due to selecting the transducer startup noise peak at {{l_rec_snapped}} us.",
@@ -98,7 +99,7 @@ def get_error_message(key: str, placeholders: dict) -> str:
 
 
 def get_tutorial_content(key: str, placeholders: dict) -> str:
-    path = "/Users/valeriebracho/wave-tutor-project/references/tutorial_static_content.json"
+    path = os.path.join(BASE_DIR, "references", "tutorial_static_content.json")
     defaults = {
         "step0_welcome_card": "Welcome to the WaveTutor Guided Tutorial! Before we begin, let's review the parameters used for this experiment:\n* **Specimen Material:** {{material}}\n* **Specimen Thickness ($d$):** {{thickness}} mm\n* **Signal Frequency ($f_0$):** {{frequency}} kHz\n\n##### 🎯 Tutorial Objectives\nIn this guided tutorial, we will take you step-by-step through the solver's attempts to measure the ultrasonic sound speeds:\n* **Transducer Ringing & Startup Electrical Noise:** Analyze the impact of transducer startup ringing.\n* **Longitudinal Wave Leakage (Mode Overlap):** Inspect wave mode leakage on the shear channel.\n* **Correct Peak Alignment & Moduli Calculation:** Match corresponding peaks, calculate true wave velocities, and evaluate dynamic elastic properties.",
         "attempt3_pass_message": "#### 🟢 Status: Verification PASS\n\n**Well done! The calculated wave velocities and travel times are correct.**\n\n* **Why they are correct:** By using cross-correlation to align the signals, we matched the corresponding peaks (the same peak index of the wave package) on both waveforms. This avoids the early transducer startup ringing noise and the longitudinal wave mode leakage, yielding the true physical travel time of the sound wave.\n\n* **Next Steps:** We will now move on to a step-by-step revision of the results and discuss what these physical properties mean for the material.",
@@ -564,10 +565,8 @@ def calculate_physics_results(ctx: Context, node_input: object) -> Event:
         error_message = ""
 
     # Record moduli
-    with open(
-        "/Users/valeriebracho/wave-tutor-project/references/literature_values.json",
-        "r",
-    ) as f:
+    lit_path = os.path.join(BASE_DIR, "references", "literature_values.json")
+    with open(lit_path, "r") as f:
         lit_db = json.load(f)
     meta = lit_db[material.lower()]
     density = meta["density_kg_m3"]
@@ -989,10 +988,7 @@ def compile_local_fallback_explanation(
     s_ex: float = 0.0,
     s_rec: float = 0.0,
 ) -> str:
-    db = METALS_DATABASE[material.lower()]
-    lit_path = (
-        "/Users/valeriebracho/wave-tutor-project/references/literature_values.json"
-    )
+    lit_path = os.path.join(BASE_DIR, "references", "literature_values.json")
     with open(lit_path, "r") as f:
         lit_db = json.load(f)
     meta = lit_db[material.lower()]

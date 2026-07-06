@@ -787,7 +787,8 @@ else:
     # If not visitor-activated, restore original server key or remove it
     if st.session_state.get("original_server_key"):
         os.environ["GEMINI_API_KEY"] = st.session_state["original_server_key"]
-        st.sidebar.info("ℹ️ Running on server configuration.")
+        key_prefix = st.session_state["original_server_key"][:5] + "..." if len(st.session_state["original_server_key"]) > 5 else st.session_state["original_server_key"]
+        st.sidebar.info(f"ℹ️ Running on server configuration ({key_prefix}).")
     else:
         if "GEMINI_API_KEY" in os.environ:
             del os.environ["GEMINI_API_KEY"]

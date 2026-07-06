@@ -40,7 +40,13 @@ Install required packages:
 agents-cli install
 ```
 
-Test the agent with a local web server:
+Launch the interactive Streamlit Dashboard:
+
+```bash
+uv run streamlit run app.py
+```
+
+Test the agent with a local web server playground:
 
 ```bash
 agents-cli playground

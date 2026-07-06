@@ -747,19 +747,46 @@ selected_page = st.sidebar.radio(
 )
 st.session_state["current_page"] = selected_page
 
+if "api_key_activated" not in st.session_state:
+    st.session_state["api_key_activated"] = False
+
 st.sidebar.markdown("---")
 st.sidebar.markdown(
     "<h4 style='font-weight: 700; margin-bottom: 2px;'>🔑 Gemini API Authentication</h4>",
     unsafe_allow_html=True,
 )
-visitor_api_key = st.sidebar.text_input(
+
+key_input = st.sidebar.text_input(
     "Enter your API Key:",
     type="password",
     placeholder="AIzaSy...",
+    value=st.session_state.get("visitor_key_value", ""),
     help="Optional: Enter a Gemini API Key from Google AI Studio. If empty, the app will use the server's default configuration (or seamlessly switch to the local physics fallback).",
 )
-if visitor_api_key:
-    os.environ["GEMINI_API_KEY"] = visitor_api_key
+
+col1, col2 = st.sidebar.columns(2)
+with col1:
+    if st.button("Activate Key", use_container_width=True, key="act_btn"):
+        if key_input:
+            st.session_state["visitor_key_value"] = key_input
+            st.session_state["api_key_activated"] = True
+            st.rerun()
+with col2:
+    if st.button("Clear Key", use_container_width=True, key="clr_btn"):
+        st.session_state["visitor_key_value"] = ""
+        st.session_state["api_key_activated"] = False
+        st.rerun()
+
+# Apply key to env if activated
+if st.session_state["api_key_activated"] and st.session_state.get("visitor_key_value"):
+    os.environ["GEMINI_API_KEY"] = st.session_state["visitor_key_value"]
+    st.sidebar.success("🟢 API Key Activated!")
+else:
+    # If not visitor-activated, check if a default key exists in environment (e.g. from Streamlit secrets)
+    if os.environ.get("GEMINI_API_KEY"):
+        st.sidebar.info("ℹ️ Running on server configuration.")
+    else:
+        st.sidebar.info("ℹ️ Running on local fallback.")
 
 
 # =========================================================================

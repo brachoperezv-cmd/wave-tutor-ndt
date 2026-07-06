@@ -839,6 +839,14 @@ with col2:
         st.session_state["api_key_activated"] = False
         st.rerun()
 
+st.sidebar.markdown(
+    "<div style='font-size: 0.75rem; color: #94a3b8; margin-top: 2px; margin-bottom: 8px; line-height: 1.25;'>"
+    "🔒 <b>Privacy Guard:</b> Your key is strictly thread-isolated in memory and temporarily cached in your local session. "
+    "It is never saved to the database or shared with other visitors. Clicking <i>Clear Key</i> or closing your tab destroys it instantly."
+    "</div>",
+    unsafe_allow_html=True,
+)
+
 # Apply key status message in sidebar (the actual key is isolated dynamically inside run_agent_with_isolation)
 if st.session_state["api_key_activated"] and st.session_state.get("visitor_key_value"):
     st.sidebar.success("🟢 API Key Activated!")

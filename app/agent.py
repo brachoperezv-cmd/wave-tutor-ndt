@@ -53,10 +53,10 @@ else:
     os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "False"
 
 
-# Structuring inputs and outputs for Structured Outputs (PI feedback structure)
-class PrincipalInvestigatorFeedback(BaseModel):
-    is_approved: bool = Field(
-        description="True if the lesson review satisfies all technical and formatting rules, False if corrections are needed."
+# Define structured model schemas
+class PIVerdict(BaseModel):
+    approved: bool = Field(
+        description="True if the RA's draft explanation is accurate, educational, Socratic, and ready for the student."
     )
     feedback_to_ra: str = Field(
         description="Detailed suggestions for corrections if not approved. If approved, this can be empty or 'Approved'."

@@ -749,6 +749,8 @@ st.session_state["current_page"] = selected_page
 
 if "api_key_activated" not in st.session_state:
     st.session_state["api_key_activated"] = False
+if "original_server_key" not in st.session_state:
+    st.session_state["original_server_key"] = os.environ.get("GEMINI_API_KEY", "")
 
 st.sidebar.markdown("---")
 st.sidebar.markdown(
@@ -782,10 +784,13 @@ if st.session_state["api_key_activated"] and st.session_state.get("visitor_key_v
     os.environ["GEMINI_API_KEY"] = st.session_state["visitor_key_value"]
     st.sidebar.success("🟢 API Key Activated!")
 else:
-    # If not visitor-activated, check if a default key exists in environment (e.g. from Streamlit secrets)
-    if os.environ.get("GEMINI_API_KEY"):
+    # If not visitor-activated, restore original server key or remove it
+    if st.session_state.get("original_server_key"):
+        os.environ["GEMINI_API_KEY"] = st.session_state["original_server_key"]
         st.sidebar.info("ℹ️ Running on server configuration.")
     else:
+        if "GEMINI_API_KEY" in os.environ:
+            del os.environ["GEMINI_API_KEY"]
         st.sidebar.info("ℹ️ Running on local fallback.")
 
 

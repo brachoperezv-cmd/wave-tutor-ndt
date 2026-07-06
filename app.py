@@ -21,6 +21,9 @@ from app.diagrams import (
 from app.generate_signal import METALS_DATABASE, generate_signal_data
 from app.signal_utils import find_signal_peaks, load_signal
 
+# Save the true original server key once when the Python process starts
+ORIGINAL_SERVER_KEY = os.environ.get("GEMINI_API_KEY", "")
+
 # Global execution lock to ensure thread-safe API Key environment variable usage
 genai_lock = threading.Lock()
 
@@ -42,8 +45,8 @@ def run_agent_with_isolation(runner_obj, prompt_text, session_id):
         
         if st.session_state.get("api_key_activated") and st.session_state.get("visitor_key_value"):
             target_key = st.session_state["visitor_key_value"]
-        elif st.session_state.get("original_server_key"):
-            target_key = st.session_state["original_server_key"]
+        elif ORIGINAL_SERVER_KEY:
+            target_key = ORIGINAL_SERVER_KEY
             
         if target_key:
             os.environ["GEMINI_API_KEY"] = target_key
@@ -836,19 +839,15 @@ with col2:
         st.session_state["api_key_activated"] = False
         st.rerun()
 
-# Apply key to env if activated
+# Apply key status message in sidebar (the actual key is isolated dynamically inside run_agent_with_isolation)
 if st.session_state["api_key_activated"] and st.session_state.get("visitor_key_value"):
-    os.environ["GEMINI_API_KEY"] = st.session_state["visitor_key_value"]
     st.sidebar.success("🟢 API Key Activated!")
 else:
-    # If not visitor-activated, restore original server key or remove it
-    if st.session_state.get("original_server_key"):
-        os.environ["GEMINI_API_KEY"] = st.session_state["original_server_key"]
-        key_prefix = st.session_state["original_server_key"][:5] + "..." if len(st.session_state["original_server_key"]) > 5 else st.session_state["original_server_key"]
+    # If not visitor-activated, show if server has default key or if we fall back
+    if ORIGINAL_SERVER_KEY:
+        key_prefix = ORIGINAL_SERVER_KEY[:5] + "..." if len(ORIGINAL_SERVER_KEY) > 5 else ORIGINAL_SERVER_KEY
         st.sidebar.info(f"ℹ️ Running on server configuration ({key_prefix}).")
     else:
-        if "GEMINI_API_KEY" in os.environ:
-            del os.environ["GEMINI_API_KEY"]
         st.sidebar.info("ℹ️ Running on local fallback.")
 
 

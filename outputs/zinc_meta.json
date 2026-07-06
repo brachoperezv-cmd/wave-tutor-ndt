@@ -1,0 +1,29 @@
+{
+  "material": "zinc",
+  "thickness_mm": 50.0,
+  "frequency_khz": 1000.0,
+  "actual_cL_m_s": 4210.294555723087,
+  "actual_cS_m_s": 2388.9169287198706,
+  "longitudinal_delay_us": 11.875653671792298,
+  "shear_delay_us": 20.929986890248667,
+  "excit_file": "outputs/zinc_excit.txt",
+  "longi_file": "outputs/zinc_longi.txt",
+  "shear_file": "outputs/zinc_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": {
+      "artifact_cycles": 7.156905544389383,
+      "artifact_duration_us": 1.635864124431859,
+      "artifact_amp": 1.3732437116012552,
+      "phase_offset_rad": 2.991267180177819,
+      "decay_strength": 11.507512786804778
+    },
+    "shear": {
+      "artifact_cycles": 6.833787288913084,
+      "artifact_duration_us": 1.5620085231801333,
+      "artifact_amp": -1.9940752181965427,
+      "phase_offset_rad": 4.78860305860259,
+      "decay_strength": 10.37260684679042
+    }
+  }
+}

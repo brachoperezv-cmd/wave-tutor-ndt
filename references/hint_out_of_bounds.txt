@@ -1,0 +1,9 @@
+### What went wrong
+
+The selected peaks are on real signal features, but the calculated speed is outside the expected range for this material.
+
+That usually means the peak came from the wrong part of the signal.
+
+### What to do next
+
+Check whether the selected peak is from startup noise, leakage, a later echo, or the wrong wave packet. Look for the first clear bulk wave arrival after the startup region.

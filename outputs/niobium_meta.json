@@ -1,0 +1,17 @@
+{
+  "material": "niobium",
+  "thickness_mm": 50.0,
+  "frequency_khz": 1000.0,
+  "actual_cL_m_s": 4982.026667809229,
+  "actual_cS_m_s": 2102.8322033211266,
+  "longitudinal_delay_us": 10.036076346814648,
+  "shear_delay_us": 23.77745590971646,
+  "excit_file": "outputs/niobium_excit.txt",
+  "longi_file": "outputs/niobium_longi.txt",
+  "shear_file": "outputs/niobium_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": null,
+    "shear": null
+  }
+}

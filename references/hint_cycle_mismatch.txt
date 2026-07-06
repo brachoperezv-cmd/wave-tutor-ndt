@@ -1,0 +1,11 @@
+### What went wrong
+
+The selected peaks may be real signal features, but they do not represent the true material delay.
+
+This can happen when the selected received peak is from the wrong cycle or wrong part of the wave packet. The signal feature exists, but the measured time shift no longer represents the wave traveling through the specimen.
+
+This can happen when the excitation signal is selected on one positive peak and the received signal is selected on the next positive peak.
+
+### What to do next
+
+Shift the receiver selection left or right by one cycle. Remember to match corresponding peaks in the excitation signal and received signals.

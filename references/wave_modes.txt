@@ -1,0 +1,24 @@
+WAVE MODES AND VELOCITY BOUNDARIES IN SOLIDS
+
+Ultrasonic testing in solid materials primarily utilizes two types of mechanical wave propagation: Longitudinal (compression) waves and Shear (transverse) waves. These modes propagate at different velocities due to the elastic properties of the medium.
+
+1. Longitudinal Waves (L-waves):
+* Particle motion is parallel to the direction of wave propagation.
+* L-waves involve compression and rarefaction of the atomic lattice.
+* Visual analogy: A stretched spring or Slinky pushed and pulled along its length, sending a pulse of compression down the coils.
+* Because solids resist volume changes (bulk modulus) and shape changes (shear modulus), L-waves propagate faster than other modes. L-wave speed is given by:
+    V_L = Sqrt( (K + 4/3 * G) / rho )
+  where K is the bulk modulus, G is the shear modulus, and rho is the density.
+
+2. Shear Waves (S-waves):
+* Particle motion is perpendicular to the direction of wave propagation.
+* S-waves involve transverse deformation (shear) of the lattice.
+* Visual analogy: A rope tied to a wall and shaken up and down, creating a crest-and-trough wave traveling down the rope.
+* Because fluids cannot resist shear deformation, S-waves can only propagate in solid mediums. Since solids are easier to deform transversely than to compress, G is smaller than K, meaning shear waves travel significantly slower than longitudinal waves (typically 50% to 60% of L-wave speed). S-wave speed is:
+    V_S = Sqrt( G / rho )
+
+3. Boundary Restrictions:
+Due to these physical constraints, in any isotropic solid metal:
+* V_L is always strictly greater than V_S (V_L > V_S).
+* If a measurement results in V_L <= V_S, it indicates an experimental error or incorrect peak selection.
+* Typical ratio of V_L / V_S ranges between 1.5 and 2.2 for structural metals.

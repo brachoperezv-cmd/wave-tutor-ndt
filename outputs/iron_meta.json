@@ -1,0 +1,29 @@
+{
+  "material": "iron",
+  "thickness_mm": 15.0,
+  "frequency_khz": 700.0,
+  "actual_cL_m_s": 5758.518193597174,
+  "actual_cS_m_s": 2919.290357167181,
+  "longitudinal_delay_us": 2.604836781913499,
+  "shear_delay_us": 5.138235038242544,
+  "excit_file": "outputs/iron_excit.txt",
+  "longi_file": "outputs/iron_longi.txt",
+  "shear_file": "outputs/iron_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": {
+      "artifact_cycles": 7.0495187383668805,
+      "artifact_duration_us": 2.301883669670818,
+      "artifact_amp": -3.351999649185121,
+      "phase_offset_rad": 3.7448636170313585,
+      "decay_strength": 9.917090228733883
+    },
+    "shear": {
+      "artifact_cycles": 7.005995609727752,
+      "artifact_duration_us": 2.28767203582947,
+      "artifact_amp": 2.8362678907839096,
+      "phase_offset_rad": 2.950957378344857,
+      "decay_strength": 11.647249660290605
+    }
+  }
+}

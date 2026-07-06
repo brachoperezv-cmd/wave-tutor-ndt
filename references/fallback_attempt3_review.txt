@@ -1,0 +1,1 @@
+In the successful attempt, the Solver aligned the signals using the cross-correlation envelope and matched corresponding peaks (the 3rd peak of the excitation pulse to the 3rd peak of the first bulk wave arrival packet). This calculated delay yields the true physical travel time of the wave, resulting in the correct wave speed measurements.

@@ -1,0 +1,58 @@
+{
+  "lead": {
+    "density_kg_m3": 11340,
+    "youngs_modulus_gpa": 16.0,
+    "shear_modulus_gpa": 5.6,
+    "poissons_ratio": 0.44
+  },
+  "iron": {
+    "density_kg_m3": 7870,
+    "youngs_modulus_gpa": 200.0,
+    "shear_modulus_gpa": 82.0,
+    "poissons_ratio": 0.29
+  },
+  "aluminum": {
+    "density_kg_m3": 2700,
+    "youngs_modulus_gpa": 70.0,
+    "youngs_modulus_min_gpa": 68.0,
+    "youngs_modulus_max_gpa": 72.0,
+    "shear_modulus_gpa": 26.0,
+    "poissons_ratio": 0.33
+  },
+  "molybdenum": {
+    "density_kg_m3": 10220,
+    "youngs_modulus_gpa": 329.0,
+    "shear_modulus_gpa": 120.0,
+    "poissons_ratio": 0.31
+  },
+  "magnesium": {
+    "density_kg_m3": 1738,
+    "youngs_modulus_gpa": 45.0,
+    "shear_modulus_gpa": 17.0,
+    "poissons_ratio": 0.29
+  },
+  "tin": {
+    "density_kg_m3": 7310,
+    "youngs_modulus_gpa": 50.0,
+    "shear_modulus_gpa": 18.0,
+    "poissons_ratio": 0.33
+  },
+  "niobium": {
+    "density_kg_m3": 8570,
+    "youngs_modulus_gpa": 105.0,
+    "shear_modulus_gpa": 38.0,
+    "poissons_ratio": 0.40
+  },
+  "nickel": {
+    "density_kg_m3": 8908,
+    "youngs_modulus_gpa": 200.0,
+    "shear_modulus_gpa": 76.0,
+    "poissons_ratio": 0.31
+  },
+  "zinc": {
+    "density_kg_m3": 7140,
+    "youngs_modulus_gpa": 108.0,
+    "shear_modulus_gpa": 43.0,
+    "poissons_ratio": 0.25
+  }
+}

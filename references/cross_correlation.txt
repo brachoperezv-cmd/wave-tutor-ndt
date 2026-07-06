@@ -1,0 +1,17 @@
+CROSS-CORRELATION IN ULTRASONIC SIGNAL PROCESSING
+
+Measuring the speed of sound requires an accurate calculation of the time-of-flight (TOF) between the transducer excitation pulse and the received wave packets. In experimental environments containing background noise and distortions, simple threshold-based peak detection can be inaccurate. Cross-correlation is a robust mathematical technique used to determine the exact time shift between two signals.
+
+1. Mathematical Concept:
+The cross-correlation of a continuous excitation signal e(t) and a received signal r(t) is defined as:
+    R_er(tau) = Integral of e(t) * r(t + tau) dt
+
+For discrete digital signals, the cross-correlation slides the excitation waveform across the received waveform sample-by-sample, multiplying overlapping points and summing the products.
+
+2. Locating Wave Arrivals:
+When the sliding excitation pulse aligns perfectly with a wave packet in the received signal, the product of their overlapping amplitudes reaches a maximum. Therefore, the peaks in the cross-correlation output represent the time-delays (tau) where wave packets arrived at the receiver.
+
+3. Advantages of Cross-Correlation:
+* Noise Immunity: Random background noise cancels out during the integration, while the coherent wave shapes reinforce each other.
+* Waveform Matching: It matches the entire shape of the Tukey burst rather than relying on a single threshold point, which prevents triggering on early noise spikes.
+* Resolution: Allows sub-microsecond resolution in determining wave travel times.

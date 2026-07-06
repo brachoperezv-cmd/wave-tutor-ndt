@@ -1,0 +1,7 @@
+### What went wrong
+
+The shear peak was selected too early. That early packet is likely longitudinal leakage, not the true shear wave.
+
+### What to do next
+
+Move the shear receiver selection later in time. The true shear wave should arrive after the longitudinal wave and usually appears as a later, clearer packet. Remember to match corresponding peaks in the excitation signal and received signals.

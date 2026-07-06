@@ -1,0 +1,11 @@
+{
+  "reject_cat2_negative_L": "Calculated travel time is negative or zero ({{l_diff}} us), meaning the receiver peak selected at {{l_rec_snapped}} us occurs before the wave was sent. This is transducer electrical noise/ringing.",
+  "reject_cat2_high_speed_L": "Longitudinal speed is impossibly high ({{cL}} m/s) because the calculated travel time is too short ({{l_diff}} us) due to the selection of the transducer startup noise peak at {{l_rec_snapped}} us.",
+  "reject_cat2_negative_S": "Calculated travel time is negative or zero ({{s_diff}} us), meaning the receiver peak selected at {{s_rec_snapped}} us occurs before the wave was sent. This is transducer electrical noise/ringing.",
+  "reject_cat2_high_speed_S": "Shear speed is impossibly high ({{cS}} m/s) because the calculated travel time is too short ({{s_diff}} us) due to the selection of the transducer startup noise peak at {{s_rec_snapped}} us.",
+  "reject_cat1_overlap": "Shear wave speed ({{cS}} m/s) overlaps with longitudinal velocities, meaning the early longitudinal leakage wave was selected at {{s_rec_snapped}} us.",
+  "reject_cycle_mismatch_L": "For the longitudinal wave, there is a cycle mismatch of approximately {{n_cycles}} cycle(s). Make sure corresponding features (e.g. the 3rd positive peak) are selected on both waveforms.",
+  "reject_cycle_mismatch_S": "For the shear wave, there is a cycle mismatch of approximately {{n_cycles}} cycle(s). Make sure corresponding features (e.g. the 3rd positive peak) are selected on both waveforms.",
+  "reject_bounds_cL": "Longitudinal speed ({{cL}} m/s) is outside typical range [{{cL_min}}, {{cL_max}}] m/s",
+  "reject_bounds_cS": "Shear speed ({{cS}} m/s) is outside typical range [{{cS_min}}, {{cS_max}}] m/s"
+}

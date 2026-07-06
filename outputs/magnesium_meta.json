@@ -1,0 +1,29 @@
+{
+  "material": "magnesium",
+  "thickness_mm": 20.0,
+  "frequency_khz": 700.0,
+  "actual_cL_m_s": 5800.289138937221,
+  "actual_cS_m_s": 3129.1731064190726,
+  "longitudinal_delay_us": 3.4481039687729385,
+  "shear_delay_us": 6.391464875807837,
+  "excit_file": "outputs/magnesium_excit.txt",
+  "longi_file": "outputs/magnesium_longi.txt",
+  "shear_file": "outputs/magnesium_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": {
+      "artifact_cycles": 6.966832129009225,
+      "artifact_duration_us": 2.2748839604928084,
+      "artifact_amp": -1.3905985824183789,
+      "phase_offset_rad": 4.975804628174162,
+      "decay_strength": 9.005919187743714
+    },
+    "shear": {
+      "artifact_cycles": 6.914884020647562,
+      "artifact_duration_us": 2.25792131286451,
+      "artifact_amp": -1.7282674170739996,
+      "phase_offset_rad": 3.9241063560081857,
+      "decay_strength": 9.903027853268807
+    }
+  }
+}

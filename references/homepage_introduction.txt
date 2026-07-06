@@ -1,0 +1,12 @@
+Welcome to **WaveTutor**, an interactive learning laboratory designed to introduce engineering students to the principles of Ultrasonic Non-Destructive Testing (NDT). 
+
+In this application, you will learn how high-frequency acoustic waves propagate through different materials, how sound speed is measured experimentally, and how those measurements are used to determine critical elastic material properties.
+
+### 🎓 What You Will Learn:
+1. **Longitudinal vs. Shear Waves:** Explore the physical difference in particle motion between compression waves and shear waves.
+2. **Time-of-Flight (TOF) Measurement:** Learn how to analyze ultrasonic waveforms and select corresponding peaks to calculate wave speeds.
+3. **Material Properties Derivation:** Connect acoustic velocity measurements directly to Young's modulus, shear modulus, and Poisson's ratio.
+
+### 🚀 How to Use WaveTutor:
+* Use the **Review Topics** panel on the right to study the underlying physics, equations, and wave visualization concepts.
+* Once you are comfortable with the theory, scroll down to the **Testing Simulation** section to start either the **Guided Tutorial** or test your skills in the **Practice Sandbox**.

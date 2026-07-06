@@ -1,0 +1,13 @@
+### Nondestructive Material Characterization
+Ultrasonic testing (UT) is a powerful **nondestructive testing (NDT)** method. Unlike traditional destructive mechanical tests (like tensile pull tests or hardness indentation), ultrasonic testing allows us to measure material properties without damaging, cutting, or loading the specimen to failure.
+
+### Dynamic vs. Static Elastic Moduli
+The elastic constants calculated from sound speeds (Young's modulus $E$, Shear modulus $G$, and Poisson's ratio $\nu$) are **dynamic elastic properties**:
+* **High Frequency & Low Strain:** They are measured using rapid, micro-strain elastic wave cycles under adiabatic conditions.
+* **Stiffness Comparison:** Because the deformation is extremely fast and minute, dislocation loops do not have time to move or slip. Consequently, dynamic moduli are typically slightly higher (by 1% to 10%) than static moduli measured via slow, isothermal tensile tests, which allow micro-plasticity and creep to occur.
+
+### Connecting Sound Speed to Stiffness and Density
+Acoustic wave speeds in solid media are governed by the material's bulk density ($\rho$) and its stiffness (elastic moduli):
+* **Longitudinal Waves ($c_{\text{L}}$):** Depend on the material's resistance to both compressional and shear deformation.
+* **Shear Waves ($c_{\text{S}}$):** Depend strictly on the material's shear stiffness (shear modulus $G$).
+By combining both velocities, we can solve for all independent elastic properties of isotropic solids.

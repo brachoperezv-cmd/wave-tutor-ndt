@@ -1,0 +1,9 @@
+Welcome to the **Student Practice Sandbox (Practice Mode)**!
+
+In this mode, you will conduct independent time-of-flight measurements on different specimen metals.
+1. Select a material, specimen thickness, and testing frequency.
+2. Review the plotting canvas to identify matching wave peaks.
+3. Input your peak choices in the controls panel on the left and submit your attempt.
+4. Click **Start Practice** to begin. 
+
+The Research Assistant (RA) and Principal Investigator (PI) will grade your submission programmatically, classifying any physical anomalies or peak mis-selections to help you learn!

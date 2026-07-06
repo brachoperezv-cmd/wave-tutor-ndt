@@ -1,0 +1,28 @@
+MEASURING MATERIAL DENSITY IN THE LABORATORY
+
+To calculate the elastic constants (Young's Modulus and Shear Modulus) of a material from ultrasonic wave speeds, the material's bulk density (rho) must be known. Density is defined as mass per unit volume:
+    rho = mass / volume
+
+In a standard laboratory setting, there are two primary, practical methods for obtaining a solid sample's density:
+
+1. Direct Geometric Measurement (Mass / Volume)
+This is the simplest method, suitable for samples with regular geometric shapes (e.g., cylinders, rectangular blocks).
+* Procedure:
+  a. Weigh the dry sample on a high-precision lab balance to find its mass (m).
+  b. Use vernier calipers or a micrometer to measure the dimensions of the sample.
+  c. Calculate the volume (V) mathematically (e.g., V = pi * r^2 * h for a cylinder).
+  d. Compute density: rho = m / V.
+* Limitations: Any surface roughness, non-parallel edges, or internal voids will cause errors in the volume calculation, leading to inaccurate density values.
+
+2. Hydrostatic Weighing (Archimedes' Principle)
+This is a highly accurate method doable in most labs, and is suitable for samples of any shape (including irregular or rough shapes). It relies on Archimedes' Principle, which states that a body submerged in a fluid is buoyed up by a force equal to the weight of the fluid it displaces.
+* Equipment: A standard lab balance, a beaker of distilled water, and a thin wire harness.
+* Procedure:
+  a. Weigh the dry sample in air to find its dry weight (W_air).
+  b. Submerge the sample fully in the water (making sure it doesn't touch the beaker walls) and record its submerged weight (W_sub).
+  c. Calculate the volume of the sample based on the mass of displaced water:
+       Volume = (W_air - W_sub) / rho_water
+     where rho_water is approximately 1.00 g/cm^3 (or 998 kg/m^3 at room temperature).
+  d. Compute the material density:
+       rho = (W_air / (W_air - W_sub)) * rho_water
+* Advantages: Bypasses the need for precise dimensional measurements and averages out any surface irregularities.

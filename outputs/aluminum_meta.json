@@ -1,0 +1,29 @@
+{
+  "material": "aluminum",
+  "thickness_mm": 5.0,
+  "frequency_khz": 500.0,
+  "actual_cL_m_s": 6285.833945291756,
+  "actual_cS_m_s": 3120.5247948325728,
+  "longitudinal_delay_us": 0.7954394028727283,
+  "shear_delay_us": 1.6022945910507556,
+  "excit_file": "outputs/aluminum_excit.txt",
+  "longi_file": "outputs/aluminum_longi.txt",
+  "shear_file": "outputs/aluminum_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": {
+      "artifact_cycles": 6.945470584275137,
+      "artifact_duration_us": 3.1750722670972054,
+      "artifact_amp": -3.4625383710904685,
+      "phase_offset_rad": 3.260016813353366,
+      "decay_strength": 11.151902435737652
+    },
+    "shear": {
+      "artifact_cycles": 7.086345345143652,
+      "artifact_duration_us": 3.2394721577799555,
+      "artifact_amp": 1.93530542558813,
+      "phase_offset_rad": 5.58347640185543,
+      "decay_strength": 9.854305511699025
+    }
+  }
+}

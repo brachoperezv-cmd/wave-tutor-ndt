@@ -1,0 +1,31 @@
+Using the measured velocities and the reference density of {{density}} kg/m³, we calculate the dynamic elastic constants:
+
+| Elastic Constant | Calculated Value | Literature Value | Error % |
+| :--- | :--- | :--- | :--- |
+| **Young's Modulus (E)** | {{youngs_calc}} GPa | {{youngs_lit}} GPa | {{youngs_error}}% |
+| **Shear Modulus (G)** | {{shear_calc}} GPa | {{shear_lit}} GPa | {{shear_error}}% |
+| **Poisson's Ratio ($\nu$)** | {{poissons_calc}} | {{poissons_lit}} | {{poissons_error}}% |
+
+---
+
+#### 📚 Physics Review: Dynamic vs. Static Modulus
+Remember that the moduli you just calculated are **dynamic elastic constants**. They reflect the material's elastic behavior under high-frequency, low-amplitude acoustic waves. Because the wave passes in microseconds:
+* The deformation is purely elastic and adiabatic.
+* Dislocation loops inside the metal's grain structures do not have time to break free and move.
+* This results in slightly higher stiffness values compared to static tensile tests (isothermal, high-strain), which allow micro-deformations and creep to occur.
+
+---
+
+#### 🔬 Density Determination in the Laboratory
+To calculate these moduli from sound speeds, we must know the material's bulk density ($\rho$). In the laboratory, you can determine density using:
+1. **Direct Measurement:** For regular geometries (e.g. cylinders, blocks), weigh the sample to find mass ($m$), measure the dimensions with a caliper to compute volume ($V$), and calculate $\rho = m/V$.
+2. **Hydrostatic Weighing (Archimedes' Principle):** For irregular samples, weigh the specimen in air ($W_{\text{air}}$), then weigh it fully submerged in water ($W_{\text{water}}$). The density is calculated as:
+   $$\rho = \left[ \frac{W_{\text{air}}}{W_{\text{air}} - W_{\text{water}}} \right] \times \rho_{\text{water}}$$
+   This is the most precise method for materials that may have internal porosity or casting voids.
+
+---
+
+#### ⚡ The Power of Cross-Correlation in Signal Processing
+Simple threshold-based peak detection can easily trigger on early noise spikes or leakage waves. To measure time-of-flight (TOF) delays with high accuracy, the system leverages **cross-correlation**. This sliding mathematical filter slides the excitation burst across the received signal sample-by-sample, multiplying overlapping amplitudes and summing the products. When the waveforms align perfectly, the correlation reaches a maximum peak. This mathematical technique offers key advantages:
+* **High Noise Immunity:** Random background noise cancels out during the integration, while coherent wave shapes reinforce each other.
+* **Complete Waveform Matching:** It matches the entire Tukey burst packet shape rather than a single peak threshold, preventing false triggers.

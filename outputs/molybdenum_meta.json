@@ -1,0 +1,29 @@
+{
+  "material": "molybdenum",
+  "thickness_mm": 50.0,
+  "frequency_khz": 1000.0,
+  "actual_cL_m_s": 6263.682090459997,
+  "actual_cS_m_s": 3288.8750442151045,
+  "longitudinal_delay_us": 7.982525178944398,
+  "shear_delay_us": 15.20276669919291,
+  "excit_file": "outputs/molybdenum_excit.txt",
+  "longi_file": "outputs/molybdenum_longi.txt",
+  "shear_file": "outputs/molybdenum_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": {
+      "artifact_cycles": 7.003843211673515,
+      "artifact_duration_us": 1.6008784483825178,
+      "artifact_amp": -2.1472725815410776,
+      "phase_offset_rad": 3.309711127367374,
+      "decay_strength": 10.063485226440445
+    },
+    "shear": {
+      "artifact_cycles": 7.114715960697055,
+      "artifact_duration_us": 1.6262207910164697,
+      "artifact_amp": 2.2739611994897397,
+      "phase_offset_rad": 2.497480276484911,
+      "decay_strength": 11.23550585022892
+    }
+  }
+}

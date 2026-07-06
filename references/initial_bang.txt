@@ -1,0 +1,19 @@
+ULTRASONIC TRANSDUCER NOISE AND THE "INITIAL BANG"
+
+In ultrasonic nondestructive testing (NDT), the signal captured by the receiving transducer often contains a high-amplitude packet at the very beginning of the time trace (around t = 0). This packet is commonly referred to as the "initial bang" or "main bang," and represents electrical and acoustic cross-talk rather than wave propagation through the material.
+
+1. Physical Cause of Transducer Noise:
+Ultrasonic transducers are excited using high-voltage pulses. Because the electrical pulse generator and the receiving amplifier are colocated on the same instrument (or in close physical proximity), a portion of the high-voltage excitation pulse leaks directly into the receiver circuitry. This is known as electrical cross-talk. Additionally, acoustic energy can travel directly through the casing of the transducer or along the surface of the test block rather than passing through the bulk of the material.
+
+2. Characteristics of the Artifact:
+* It begins immediately at t = 0 when the excitation pulse is fired.
+* It oscillates at a higher frequency than the nominal center frequency of the transducer.
+* Its amplitude can be extremely high, sometimes saturating the receiver amplifier.
+* It decays rapidly depending on the damping characteristics of the transducer casing.
+
+3. High-Frequency Transients in NDT Noise and Crosstalk:
+* Pulser Excitation Spike: Ultrasonic pulsers excite transducers using extremely sharp high-voltage spikes (broadband impulses). Due to their sharp rising edge, these spikes contain substantial high-frequency energy that excites higher-order mechanical vibration resonances in the crystal/matching layers, as well as electrical transient ringdown in the receiver electronics. This results in the initial bang exhibiting a higher frequency than the nominal carrier wave.
+* Acoustic Leakage/Crosstalk Filtration: Early crosstalk wave packets (such as longitudinal wave leakage on the shear trace) propagate through solid housing structures, boundary matching interfaces, or acoustic barriers. These mechanical pathways act as high-pass filters, attenuating lower frequency components and transmitting high-frequency transients. Consequently, early leakage waves appear at a higher frequency than the bulk acoustic wave.
+
+4. Impact on Sound Speed Calculations:
+* Because the initial bang occurs at t = 0, mistaking this packet for the received wave arrival leads to a calculated time-of-flight (TOF) that is close to zero. Calculating velocity (V = thickness / TOF) using this delay yields an unrealistically high sound speed (often tens of thousands of meters per second), which violates physical boundaries for any solid metal. True acoustic wave arrivals must occur after a physical delay corresponding to the material's bulk sound speed.

@@ -1,0 +1,7 @@
+### What went wrong
+
+The selected receiver peak is too early. It is probably part of the startup ringing, not the wave that traveled through the specimen.
+
+### What to do next
+
+Ignore the first large pulse near the start of the signal. Select the first clear wave packet after that region, and remember to match corresponding peaks in the excitation signal and received signals.

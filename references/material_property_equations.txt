@@ -1,0 +1,25 @@
+### Equations for Dynamic Elastic Properties
+
+Using ultrasonic sound speed measurements, we can calculate the dynamic elastic properties of homogeneous, isotropic, linear elastic solid materials:
+
+#### 1. Shear Modulus ($G$)
+The Shear Modulus represents the material's resistance to shear deformation and is calculated directly from the shear wave speed ($c_{\text{S}}$) and density ($\rho$):
+$$G = \rho c_{\text{S}}^2$$
+
+#### 2. Poisson's Ratio ($\nu$)
+Poisson's Ratio represents the ratio of transverse contraction to longitudinal extension. It is determined from the ratio of longitudinal speed ($c_{\text{L}}$) and shear speed ($c_{\text{S}}$):
+$$\nu = \frac{c_{\text{L}}^2 - 2c_{\text{S}}^2}{2(c_{\text{L}}^2 - c_{\text{S}}^2)}$$
+
+#### 3. Young's Modulus ($E$)
+Young's Modulus represents tensile stiffness (elastic resistance to stretching/compression). It is calculated from the Shear Modulus ($G$) and Poisson's Ratio ($\nu$):
+$$E = 2G(1 + \nu) = 2\rho c_{\text{S}}^2 (1 + \nu)$$
+
+---
+
+### Variable Definitions:
+* **$c_{\text{L}}$**: Longitudinal sound velocity (m/s)
+* **$c_{\text{S}}$**: Shear sound velocity (m/s)
+* **$\rho$**: Material Density ($\text{kg/m}^3$)
+* **$G$**: Shear Modulus (GPa)
+* **$\nu$**: Poisson's Ratio (dimensionless)
+* **$E$**: Young's Modulus (GPa)

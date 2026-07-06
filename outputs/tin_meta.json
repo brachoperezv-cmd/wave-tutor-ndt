@@ -1,0 +1,23 @@
+{
+  "material": "tin",
+  "thickness_mm": 50.0,
+  "frequency_khz": 1000.0,
+  "actual_cL_m_s": 2893.291837782844,
+  "actual_cS_m_s": 1743.7251830212736,
+  "longitudinal_delay_us": 17.281353836160356,
+  "shear_delay_us": 28.67424321610546,
+  "excit_file": "outputs/tin_excit.txt",
+  "longi_file": "outputs/tin_longi.txt",
+  "shear_file": "outputs/tin_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": {
+      "artifact_cycles": 6.870174717412864,
+      "artifact_duration_us": 1.5703256496943687,
+      "artifact_amp": 1.9646444923416422,
+      "phase_offset_rad": 4.018602379197287,
+      "decay_strength": 9.535613191663058
+    },
+    "shear": null
+  }
+}

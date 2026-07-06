@@ -1,0 +1,9 @@
+### What to check
+
+Select matching positive peaks on the excitation and received signals.
+
+A matching peak is the same repeated feature after the wave has traveled through the specimen.
+
+### What to do next
+
+Pick a clear positive peak in the excitation signal. Then choose the corresponding positive peak in the first real received wave packet.

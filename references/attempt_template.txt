@@ -1,0 +1,24 @@
+{{header}}
+
+### Signal check
+
+The solver selected peaks on the excitation and received signals. The goal is to match the same waveform feature after it travels through the specimen.
+
+| Channel | Excitation peak | Receiver peak | Time delay | Speed |
+|---|---:|---:|---:|---:|
+| Longitudinal | `{{l_ex}}` µs | `{{l_rec}}` µs | `{{l_diff}}` µs | `{{cL}}` m/s |
+| Shear | `{{s_ex}}` µs | `{{s_rec}}` µs | `{{s_diff}}` µs | `{{cS}}` m/s |
+
+### Quick rule
+
+Sound speed is calculated from:
+
+$$c = \frac{d}{\Delta t}$$
+
+The peak selection controls the result. If the received peak is selected at the same time as the excitation peak, the time delay becomes zero. If it is selected before the excitation peak, the time delay becomes negative. Either case means the selected point is not a real wave arrival through the specimen. It is usually startup noise, transducer ringing, leakage, or the wrong part of the signal.
+
+{{error_found_section}}
+
+{{hint}}
+
+{{how_to_match_section}}

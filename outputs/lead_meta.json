@@ -1,0 +1,23 @@
+{
+  "material": "lead",
+  "thickness_mm": 5.0,
+  "frequency_khz": 500.0,
+  "actual_cL_m_s": 1908.9197325145963,
+  "actual_cS_m_s": 720.5671967919174,
+  "longitudinal_delay_us": 2.6192824741842666,
+  "shear_delay_us": 6.938978102612519,
+  "excit_file": "outputs/lead_excit.txt",
+  "longi_file": "outputs/lead_longi.txt",
+  "shear_file": "outputs/lead_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": null,
+    "shear": {
+      "artifact_cycles": 6.936954947402346,
+      "artifact_duration_us": 3.1711794045267867,
+      "artifact_amp": 2.14395622845902,
+      "phase_offset_rad": 5.490542925780321,
+      "decay_strength": 10.968525694212722
+    }
+  }
+}

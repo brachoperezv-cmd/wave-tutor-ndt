@@ -1,0 +1,9 @@
+Welcome to the **Guided Tutorial**! 
+
+This tutorial will guide you step by step through a simulated ultrasonic measurement session. You will:
+1. Select a material, specimen thickness, and testing frequency.
+2. Observe the physical signal waveforms.
+3. Walk through the process of selecting the correct peaks on the excitation and received signals.
+4. Calculate the sound speed and determine the specimen's dynamic elastic properties.
+
+Use the controls below to configure your specimen parameters and click **Start Tutorial** to begin the step-by-step guidance!

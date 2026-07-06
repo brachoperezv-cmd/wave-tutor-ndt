@@ -1,0 +1,24 @@
+### Measuring Sound Speed in the Laboratory
+Ultrasonic sound speed measurements rely on determining the travel time of an acoustic pulse through a specimen of known thickness. By measuring the time-of-flight (TOF) interval, the speed of sound $c$ is determined directly from the distance $d$ divided by the travel time $t$:
+$$c = \frac{d}{t}$$
+
+---
+
+### Through-Transmission Measurement
+In a through-transmission setup, two transducers are placed on opposite sides of the specimen:
+1. **Transmitter:** Emits an electrical burst which is converted into an ultrasonic wave packet by a piezoelectric element.
+2. **Specimen:** The acoustic wave travels through the material thickness ($d$).
+3. **Receiver:** The wave is captured on the opposite face, converting the physical displacement back into an electrical signal.
+
+---
+
+### Manual Peak Selection
+To accurately determine the time-of-flight ($\Delta t$), students select corresponding features (such as the first prominent negative peak or the third positive cycle) on both the **Excitation Signal** and the **Received Signal**.
+* **Rule of Consistency:** You must select the *same physical wave feature* (e.g. the third peak) on both signals.
+* Selecting an incorrect wave cycle causes a **Cycle Mismatch Error**, which shifts your travel time by increments of the wave period ($1/f$) and leads to incorrect velocity results.
+
+---
+
+### Signal Alignment Concept
+Signal alignment involves comparing the shape of the excitation burst with the received wave packet. By shifting the excitation signal in time, we search for the time-delay where the two signal envelopes match best.
+* In signal processing, this shape-matching process is formalized as **cross-correlation**, which multiplies overlapping amplitudes and sums them to locate wave arrivals with high noise immunity.

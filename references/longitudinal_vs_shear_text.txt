@@ -1,0 +1,16 @@
+### Longitudinal Waves
+Longitudinal waves (also called compressional waves) are acoustic waves where the displacement of the medium particles is **parallel** to the direction of wave propagation. 
+
+Key characteristics include:
+* **Mechanism:** The wave propagates via alternating zones of compression (high density, high pressure) and rarefaction (low density, low pressure).
+* **Speed:** They travel fastest in any given solid medium because solids offer high resistance to volumetric compression.
+* **Notation:** Often denoted as P-waves (Primary) or compressional waves, with sound speed represented as $c_{\text{L}}$ or $c_{\text{P}}$.
+
+### Shear Waves
+Shear waves (also called transverse waves) are acoustic waves where the displacement of the medium particles is **perpendicular** to the direction of wave propagation.
+
+Key characteristics include:
+* **Mechanism:** The wave propagates via shear deformation. Particles oscillate up-and-down or side-to-side while the wave travels forward.
+* **Medium Restriction:** Shear waves require a shear modulus ($G > 0$) to propagate. Therefore, they can only travel through solids and cannot propagate well through liquids or gases.
+* **Speed:** They travel significantly slower than longitudinal waves in the same medium (typically around 50% to 60% of the longitudinal speed).
+* **Notation:** Often denoted as S-waves (Secondary) or transverse waves, with sound speed represented as $c_{\text{S}}$ or $c_{\text{T}}$.

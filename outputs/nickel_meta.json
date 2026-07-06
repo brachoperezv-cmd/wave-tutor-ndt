@@ -1,0 +1,29 @@
+{
+  "material": "nickel",
+  "thickness_mm": 50.0,
+  "frequency_khz": 1000.0,
+  "actual_cL_m_s": 5623.143951231417,
+  "actual_cS_m_s": 2984.1911859692905,
+  "longitudinal_delay_us": 8.891822872336473,
+  "shear_delay_us": 16.754958675263154,
+  "excit_file": "outputs/nickel_excit.txt",
+  "longi_file": "outputs/nickel_longi.txt",
+  "shear_file": "outputs/nickel_shear.txt",
+  "artifact_info": {
+    "excitation": null,
+    "longitudinal": {
+      "artifact_cycles": 7.081200924365032,
+      "artifact_duration_us": 1.6185602112834359,
+      "artifact_amp": 2.628556706245287,
+      "phase_offset_rad": 2.4099409371338503,
+      "decay_strength": 11.657359282731232
+    },
+    "shear": {
+      "artifact_cycles": 7.067009764143859,
+      "artifact_duration_us": 1.6153165175185962,
+      "artifact_amp": 3.385986178954198,
+      "phase_offset_rad": 2.9140523970205687,
+      "decay_strength": 11.5257127916646
+    }
+  }
+}

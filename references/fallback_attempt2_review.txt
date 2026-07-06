@@ -1,0 +1,1 @@
+In Attempt 2, the Longitudinal channel was matched correctly, but the Shear channel was matched to the early longitudinal leakage wave arrival packet. This wave travels much faster than the shear wave, causing the calculated shear speed to overlap with longitudinal speeds and failing the wave mode guardrail check.

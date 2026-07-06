@@ -1,6 +1,7 @@
 import json
 import os
 import uuid
+import threading
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -19,6 +20,62 @@ from app.diagrams import (
 )
 from app.generate_signal import METALS_DATABASE, generate_signal_data
 from app.signal_utils import find_signal_peaks, load_signal
+
+# Global execution lock to ensure thread-safe API Key environment variable usage
+genai_lock = threading.Lock()
+
+def run_agent_with_isolation(runner_obj, prompt_text, session_id):
+    from app.agent import research_assistant_agent, principal_investigator_agent
+    
+    with genai_lock:
+        # Clear cached client properties on ADK Gemini instances to force rebuild on new session key
+        for agent in [research_assistant_agent, principal_investigator_agent]:
+            model_inst = agent.model
+            if "api_client" in model_inst.__dict__:
+                del model_inst.__dict__["api_client"]
+            if "_live_api_client" in model_inst.__dict__:
+                del model_inst.__dict__["_live_api_client"]
+                
+        # Cache old key and determine target key for this session
+        old_env_key = os.environ.get("GEMINI_API_KEY")
+        target_key = None
+        
+        if st.session_state.get("api_key_activated") and st.session_state.get("visitor_key_value"):
+            target_key = st.session_state["visitor_key_value"]
+        elif st.session_state.get("original_server_key"):
+            target_key = st.session_state["original_server_key"]
+            
+        if target_key:
+            os.environ["GEMINI_API_KEY"] = target_key
+        else:
+            if "GEMINI_API_KEY" in os.environ:
+                del os.environ["GEMINI_API_KEY"]
+                
+        try:
+            content = types.Content(parts=[types.Part.from_text(text=prompt_text)])
+            events = list(
+                runner_obj.run(
+                    user_id="streamlit-user",
+                    session_id=session_id,
+                    new_message=content,
+                )
+            )
+            return events
+        finally:
+            # Restore environment variables
+            if old_env_key:
+                os.environ["GEMINI_API_KEY"] = old_env_key
+            else:
+                if "GEMINI_API_KEY" in os.environ:
+                    del os.environ["GEMINI_API_KEY"]
+                    
+            # Clear cache again so no keys leak in model singleton memory
+            for agent in [research_assistant_agent, principal_investigator_agent]:
+                model_inst = agent.model
+                if "api_client" in model_inst.__dict__:
+                    del model_inst.__dict__["api_client"]
+                if "_live_api_client" in model_inst.__dict__:
+                    del model_inst.__dict__["_live_api_client"]
 
 # Load literature values
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -1142,16 +1199,8 @@ elif st.session_state["current_page"] == "🎓 Guided Tutorial":
                     auto_create_session=True,
                 )
                 prompt = f"Run teaching session for {l_material} with thickness {l_thickness}mm and frequency {l_frequency}kHz"
-                content = types.Content(parts=[types.Part.from_text(text=prompt)])
-
                 run_session_id = f"session-{uuid.uuid4()}"
-                events = list(
-                    r.run(
-                        user_id="streamlit-user",
-                        session_id=run_session_id,
-                        new_message=content,
-                    )
-                )
+                events = run_agent_with_isolation(r, prompt, run_session_id)
 
                 if events:
                     st.session_state["tutor_output"] = events[-1].output
@@ -1662,13 +1711,7 @@ elif st.session_state["current_page"] == "🧪 Practice Sandbox":
                     },
                 )
 
-                events = list(
-                    r.run(
-                        user_id="streamlit-user",
-                        session_id="streamlit-practice-session",
-                        new_message=content,
-                    )
-                )
+                events = run_agent_with_isolation(r, prompt, "streamlit-practice-session")
 
                 if events:
                     st.session_state["practice_output"] = events[-1].output
